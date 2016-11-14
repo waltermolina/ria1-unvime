@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AlumnosUNViMeModelStoreContainer" CdmEntityContainer="AlumnosUNViMeEntities">
+    <EntitySetMapping Name="Careers">
+      <EntityTypeMapping TypeName="AlumnosUNViMeModel.Career">
+        <MappingFragment StoreEntitySet="Career">
+          <ScalarProperty Name="IdCareer" ColumnName="IdCareer" />
+          <ScalarProperty Name="CareerName" ColumnName="CareerName" />
+          <ScalarProperty Name="IdSchool" ColumnName="IdSchool" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentificationTypes">
+      <EntityTypeMapping TypeName="AlumnosUNViMeModel.IdentificationType">
+        <MappingFragment StoreEntitySet="IdentificationType">
+          <ScalarProperty Name="IdentificationId" ColumnName="IdentificationId" />
+          <ScalarProperty Name="IdentificationType1" ColumnName="IdentificationType" />
+          <ScalarProperty Name="IdentificationDescription" ColumnName="IdentificationDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="AlumnosUNViMeModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="IdSchool" ColumnName="IdSchool" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolAcronym" ColumnName="SchoolAcronym" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student2">
+      <EntityTypeMapping TypeName="AlumnosUNViMeModel.Student2">
+        <MappingFragment StoreEntitySet="Student2">
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="File" ColumnName="File" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Career" ColumnName="Career" />
+          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

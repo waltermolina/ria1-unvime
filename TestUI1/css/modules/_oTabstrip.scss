@@ -1,0 +1,42 @@
+﻿.o-tabstrip-header {
+    border-bottom: 0.1rem solid #ccc !important;
+}
+.o-tabstrip {
+    padding: 0.5rem 0.5rem 0;
+    height: 4rem;
+
+    > button {
+        height: 3.5rem;
+        min-width: 3.5rem;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        line-height: 3.5rem;
+        font-size: 1.8rem;
+        background: transparent;
+        border: 0.1rem solid transparent;
+        border-top: 0.2rem solid transparent;
+        border-bottom: none;
+        outline: none;
+        opacity: 0.5;
+        -moz-transition: 0.3s all;
+        -o-transition: 0.3s all;
+        -webkit-transition: 0.3s all;
+        transition: 0.3s all;
+
+        &:hover {
+            opacity: 1;
+            background: rgba(0,0,0,0.1);
+        }
+
+        &.active {
+            opacity: 1;
+            height: 3.6rem;
+            background: #fff;
+            border: 0.1rem solid #ccc;
+            border-top: 0.2rem solid #0072bb;
+            border-bottom: none;
+        }
+    }
+}

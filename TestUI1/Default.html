@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Test UI</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Tachuso | 2016">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true" />
+
+    <meta name="title" content="Test UI">
+
+    <!--Main Font: Source Sans Pro-->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!--Font Awesome (icons) + Some Hacks-->
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="fonts/font-awesome/css/font-awesome-custom.min.css" rel="stylesheet" />
+
+    <!--Material Design Icons-->
+    <link href="fonts/materialdesign/css/materialdesignicons.min.css" rel="stylesheet" />
+
+    <!--Normalize CSS-->
+    <link href="libs/normalize/normalize.min.css" rel="stylesheet" />
+
+    <!--Bootstrap-->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Modern Buttons-->
+    <link href="libs/modernButtons/css/m-buttons.min.css" rel="stylesheet" />
+    <link href="libs/modernButtons/css/m-custom.min.css" rel="stylesheet" />
+
+    <!--Kendo + Material Theme-->
+    <link href="libs/kendo/styles/kendo.common-material.min.css" rel="stylesheet">
+    <link href="libs/kendo/styles/kendo.material.min.css" rel="stylesheet">
+    <link href="libs/kendo/styles/kendo.mobile.material.min.css" rel="stylesheet" />
+
+    <!--UI CSS Files-->
+    <link href="css/common.min.css?v1.0" rel="stylesheet" />
+    <link href="css/ui.min.css?v1.0" rel="stylesheet" />
+    <link href="css/colors.min.css?v1.0" rel="stylesheet" />
+    <link href="css/scrollbar.min.css?v1.0" rel="stylesheet" />
+
+    <!--AnimateCSS-->
+    <link href="libs/animatecss/animate.min.css" rel="stylesheet" />
+    <link href="libs/animatecss/animate.custom.min.css" rel="stylesheet" />
+
+    <!-- If posible, KEEP all the JS FILES at the BOTTOM OF THE PAGE, just before </body> tag... -->
+
+</head>
+<body class="overflow-hidden">
+    <div id="background" class="retro-background"></div>
+    <div id="riaApp" class="app-content overflow-hidden">
+
+        <!--Top Bar-->
+        <div id="topBar" class="bg-shades-black disable-user-select shadow">
+            <!--Main Nav-->
+            <nav>
+                <div class="float-left">
+                    <button id="navMenuBtn" class="menu-btn float-left o-btn square no-padding"><i class="o-btn-icon mdi mdi-menu"></i></button>
+                    <header class="app-header float-left">
+                        <h1 class="float-left no-margin hide-max-width-1024">Test UI</h1>
+                        <i class="float-left mdi mdi-chevron-right hide-max-width-1024 "></i>
+                        <h2 id="pageTitle" class="float-left no-margin"><i class="icon"></i><span class="text"></span><span class="clr"></span></h2>
+                        <div class="clr"></div>
+                    </header>
+                    <div class="clr"></div>
+                </div>
+
+                <div class="float-right">
+
+                    <button id="pathMenuBtn" class="menu-btn float-left o-btn ">
+                        <span class="o-btn-text font-size-18 font-weight-200">
+                            <i class="mdi mdi mdi-account"></i>
+                            <span class="hide-max-width-1024">&nbsp;User</span>
+                        </span>
+                    </button>
+
+                    <div class="clr"></div>
+                </div>
+
+                <div class="clr"></div>
+            </nav>
+        </div>
+
+        <div id="navMenu" class="sideBar left-side hidden overflow-hidden">
+            <nav id="pagesList" class="overflow-auto">
+                <button class="nav-btn o-btn no-padding-left" data-page="home"><i class="o-btn-icon mdi mdi-home"></i><span class="o-btn-text">Inicio</span></button>
+                <button class="nav-btn o-btn no-padding-left" data-page="students"><i class="o-btn-icon mdi mdi-account-multiple"></i><span class="o-btn-text">Alumnos</span></button>
+                <button class="nav-btn o-btn no-padding-left" data-page="carrers"><i class="o-btn-icon mdi mdi-google-circles"></i><span class="o-btn-text">Carreras</span></button>
+                <button class="nav-btn o-btn no-padding-left" data-page="schools"><i class="o-btn-icon mdi mdi-school"></i><span class="o-btn-text">Escuelas</span></button>
+            </nav>
+            <nav id="optionsList">
+                <button class="nav-btn o-btn no-padding-left" data-page="settings"><i class="o-btn-icon mdi mdi-settings"></i><span class="o-btn-text">Configuración</span></button>
+                <button class="nav-btn o-btn no-padding-left" data-page="about"><i class="o-btn-icon mdi mdi-help-circle-outline"></i><span class="o-btn-text">Ayuda</span></button>
+            </nav>
+
+        </div>
+
+        <div class="sideBarOverlay"></div>
+
+        <section id="loadingBackground" class="overflow-hidden">
+            <div class="animatedPG">
+                <img src="/img/unvimeLogo2.png" class="animated infinite pulse">
+                <div class="light animated infinite pulse"></div>
+            </div>
+
+            <header>
+                <h1>un momento...</h1>
+            </header>
+        </section>
+
+        <!--Main-->
+        <section id="main" class="overflow-hidden animated half"></section>
+
+        <!--A simple Popup... Just in case you need it :) -->
+        <div id="AuxWindow" class="popup-window-container disable-user-select display-none"></div>
+
+    </div>
+
+    <!--jQuery-->
+    <script src="libs/jquery/jquery-1.min.js"></script>
+
+    <!--Underscore-->
+    <script src="libs/underscore/underscore-min.js"></script>
+
+    <!--Backbone JS-->
+    <script src="libs/backbone/backbone-min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Kendo-->
+    <script src="libs/kendo/js/kendo.all.min.js"></script>
+    <script src="libs/kendo/js/jszip.min.js"></script>
+
+    <!--Kendo Cultures-->
+    <script src="libs/kendo/js/cultures/kendo.culture.es.min.js"></script>
+    <script src="libs/kendo/js/cultures/kendo.culture.en.min.js"></script>
+    <script src="libs/kendo/js/cultures/kendo.culture.es-AR.min.js"></script>
+
+    <!--Date JS-->
+    <script src="libs/datejs/date.js"></script>
+
+    <!--App JS-->
+    <script src="js/common.min.js?v1.0"></script>
+    <script src="js/ui.min.js?v1.0"></script>
+
+</body>
+</html>

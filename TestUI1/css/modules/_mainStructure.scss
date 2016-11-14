@@ -1,0 +1,574 @@
+﻿html{
+    &.isMobile {
+        .hide-when-is-mobile {
+            display: none;
+        }
+    }
+}
+
+body {
+    background: #000;
+}
+
+#background {
+    @include absoluteFullSize(0,0,0,0);
+}
+
+.app-content {
+    @include absoluteFullSize(0,0,0,0);
+    //background: color("grey", "darken-4");
+    #topBar {
+        @include absoluteFullSize(0, 0, "", 0);
+        height: $topBarH;
+        box-shadow: 0 0 1rem 0rem rgba(0,0,0,0.5);
+        z-index: 100;
+        transition: 0.6s all;
+
+        #brand {
+        }
+
+        .menu-btn {
+            background: transparent;
+            color: white;
+
+            &.active, &:active,
+            &.hover, &:hover,
+            &.focus, &:focus {
+                background: color("pg", "darkblue");
+            }
+        }
+
+        #filterMenuBtn {
+            &:hover, &:active, &.active {
+                background: color("blue-grey","darken-4");
+                box-shadow: none;
+            }
+        }
+
+        .app-header {
+            height: $topBarH;
+            line-height: $topBarH;
+            font-size: 2rem;
+            color: color("shades","white");
+
+            > h1, > h2, i {
+                font-size: 2rem;
+                height: $topBarH;
+                line-height: $topBarH;
+                font-weight: 200;
+            }
+
+            > h1, > h2 {
+                padding: 0 0.5rem;
+            }
+
+            #pageTitle {
+                -moz-transition: 0.3s all;
+                -o-transition: 0.3s all;
+                -webkit-transition: 0.3s all;
+                transition: 0.3s all;
+                padding: 0 0.5rem 0 0;
+                height: $topBarH;
+                line-height: $topBarH;
+                display: block;
+                overflow: hidden;
+
+                & > .icon,
+                & > .text {
+                    vertical-align: middle !important;
+                    height: $topBarH;
+                    line-height: $topBarH;
+                    font-size: $oBtnNormalFontSize;
+                    display: block;
+                    float: left;
+                }
+
+                & > .icon {
+                    width: $topBarH;
+                    text-align: center;
+                    padding: 0 !important;
+                }
+
+                & > .text {
+                    font-weight: 200;
+                }
+            }
+        }
+    }
+
+    > .sideBar {
+        width: $sideBar;
+        background: #111;
+        box-shadow: 0 0 1rem 0 rgba(0,0,0,0.5);
+        z-index: 110;
+        transition: 0.6s all ease-out;
+
+        &.hidden {
+            display: block !important;
+            box-shadow: none;
+        }
+
+        &.left-side {
+            @include absoluteFullSize(0,"",0,0);
+            right: initial;
+
+            &.hidden {
+                left: -$sideBar;
+            }
+        }
+
+        &.right-side {
+            @include absoluteFullSize(0,0,0,"");
+            left: initial;
+
+            &.hidden {
+                right: -$sideBar;
+            }
+        }
+
+        .nav-btn {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            color: #fff;
+            font-weight: 200;
+
+            &.active, &:active,
+            &.hover, &:hover,
+            &.focus, &:focus {
+                background: color("pg", "darkblue");
+            }
+        }
+
+        header {
+            @include absoluteFullSize(0,0,"",0);
+            height: $sideBarHeaderH;
+            box-shadow: 0 0 1rem 0 rgba(0,0,0,.5);
+        }
+
+        section {
+            @include absoluteFullSize($sideBarHeaderH,0,0,0);
+            z-index: 10;
+        }
+
+        footer {
+            @include absoluteFullSize("",0,0,0);
+            height: $sideBarFooterH;
+        }
+
+        header, footer {
+            z-index: 20;
+
+            &.shadow {
+                box-shadow: 0 0 1rem 0 rgba(0,0,0,.5);
+            }
+        }
+    }
+
+    > .sideBarOverlay {
+        @include absoluteFullSize(0,0,0,0);
+        background: rgba(0,0,0,.5);
+        box-shadow: inset 0 0 5rem 0 rgba(0,0,0,0.5);
+        z-index: 105;
+        display: none;
+    }
+
+    #navMenu {
+        #pagesList {
+            @include absoluteFullSize(0,0,0,0);
+        }
+
+        #optionsList {
+            @include absoluteFullSize("",0,0,0);
+            border-top: 0.1rem solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 2rem 0rem rgba(0,0,0,0.5);
+        }
+    }
+
+    #filterMenu {
+
+        #filtersContent {
+
+            #filtersPanelBar {
+                background-color: transparent;
+                border: none;
+                font-size: 1.4rem;
+
+                > li {
+                    background-color: transparent;
+                    border: 0.1rem solid rgba(0,0,0,0.5);
+                    color: black;
+
+                    .k-link.k-header {
+                        background-color: transparent;
+                        border: none;
+                        padding: 0;
+                        outline: none;
+                        box-shadow: none;
+                        color: black;
+                        position: relative;
+                        height: $sideBarFilterGroupHeaderH;
+
+                        .filterGroupHeader {
+                            display: block;
+                            @include absoluteFullSize(0,0,"",0);
+                            height: $sideBarFilterGroupHeaderH;
+                            font-size: 1.6rem;
+
+                            > i.filterGroupIcon {
+                                @include absoluteFullSize(0,"",0,0);
+                                width: $sideBarFilterGroupHeaderH;
+                                text-align: center;
+                                line-height: $sideBarFilterGroupHeaderH;
+                            }
+
+                            > span.filterGroupName {
+                                @include absoluteFullSize(0,0,0,$sideBarFilterGroupHeaderH);
+                                line-height: $sideBarFilterGroupHeaderH;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+
+                    > .k-content {
+                        background-color: transparent !important;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        #filtersToolbar {
+            @include absoluteFullSize("",0,0,0);
+        }
+    }
+
+    #pathMenu {
+
+        #breadcrumb-nav {
+            height: $breadcrumbH;
+            position: relative;
+            box-shadow: 0 0 1rem .2rem rgba(0,0,0,.5);
+            z-index: 11;
+            -moz-transition: 0.6s all ease-in-out;
+            -o-transition: 0.6s all ease-in-out;
+            -webkit-transition: 0.6s all ease-in-out;
+            transition: 0.6s all ease-in-out;
+
+            > .swiper-wrapper {
+
+                > .breadcrumb-item {
+                    height: $breadcrumbH;
+                    line-height: $breadcrumbH;
+                    padding: 0 .5rem;
+                    border: none;
+                    margin: 0;
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    display: block;
+                    float: left;
+                    vertical-align: baseline;
+                    color: #000;
+
+                    &.level {
+                        background: transparent;
+                        -moz-transition: .3s all;
+                        -o-transition: .3s all;
+                        -webkit-transition: .3s all;
+                        transition: .3s all;
+                        min-width: $breadcrumbH;
+                        width: auto !important;
+                        overflow: hidden;
+                        -ms-text-overflow: ellipsis;
+                        -o-text-overflow: ellipsis;
+                        text-overflow: ellipsis;
+
+                        &:hover {
+                            background: rgba(255,255,255,.2);
+                        }
+                    }
+
+                    &.divider {
+                        text-align: center;
+                        width: 1.4rem;
+                    }
+
+                    &.min-width-40 {
+                        min-width: $breadcrumbH;
+                    }
+                }
+            }
+        }
+
+        #pathList {
+            @include absoluteFullSize($breadcrumbH,0,0,0);
+            transition: all 0.6s ease-in-out;
+
+            #pathListView {
+                border: none;
+                background: transparent;
+                margin-bottom: 10rem;
+
+
+                .list-group-item {
+                    padding: 0 1rem;
+                    border-radius: 0;
+                    border: 0.1rem solid rgba(0,0,0,0.25);
+                    height: $pathListItemH;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    vertical-align: middle;
+                    margin: 0;
+                    color: #222;
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    > .icon,
+                    > .listMobile {
+                        position: relative;
+                        z-index: 20;
+                    }
+
+                    > .listMobile {
+                        display: block;
+                        height: $pathListItemH;
+                        line-height: $pathListItemH;
+                        font-size: 1.6rem;
+                        font-weight: 400;
+                        overflow: hidden;
+                        -ms-text-overflow: ellipsis;
+                        -o-text-overflow: ellipsis;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        padding: 0;
+                    }
+
+                    > .icon {
+                        height: $pathListItemH;
+                        display: block;
+                        line-height: $pathListItemH;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #filterBar {
+        @include absoluteFullSize($topBarH,0,"",0);
+        height: $filtersMenuBarH;
+        box-shadow: 0 0 1rem 0 rgba(0,0,0,.5);
+        z-index: 90;
+        transition: 0.6s all;
+
+        #filtersMenuBar {
+            @include absoluteFullSize(0,0,0,0);
+            border: none;
+            background: transparent;
+            transition: 0.3s all;
+
+            > li.k-item {
+                border: none;
+                outline: none;
+                height: $filtersMenuBarH;
+
+                > span.k-link {
+                    height: 100%;
+                    padding: 0;
+                    background: transparent;
+
+                    > span.k-icon {
+                        display: none;
+                    }
+                }
+            }
+
+            .filterOptionsContainer {
+                width: 30rem;
+                height: 30rem;
+                overflow: auto;
+
+                .optionElement {
+                    border: none !important;
+                    margin: 0 !important;
+                    box-shadow: none !important;
+                    position: relative !important;
+                    top: initial !important;
+                    right: initial !important;
+                    bottom: initial !important;
+                    left: initial !important;
+                    font-size: 1.4rem;
+
+                    > li.km-button {
+                        padding: 0 1rem;
+                        height: 3.6rem;
+                        line-height: 3.6rem;
+                        color: #222;
+
+                        &.k-state-hover {
+                            background: rgba(0,153,255,0.5);
+                            color: #222;
+                        }
+
+                        > .k-link {
+                            padding: 0;
+                            line-height: 3.6rem;
+                            background: none !important;
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #main {
+        @include absoluteFullSize($topBarH,0,0,0);
+        background: transparent;
+        z-index: 50;
+        transition: 0.6s all;
+
+        &.invisible {
+            opacity: 0;
+        }
+    }
+
+    #loadingBackground {
+        @include absoluteFullSize($topBarH,0,0,0);
+        z-index: 40;
+        box-shadow: inset 0 0 20rem 10rem rgba(0,0,0,0.5);
+        transition: 0.6s all;
+
+        > header {
+            @include absoluteFullSize("",0,3rem,0);
+
+            > h1 {
+                color: #fff;
+                font-size: 2rem;
+                font-weight: 200;
+                text-align: center;
+                height: 3rem;
+                margin: 0;
+                line-height: 3rem;
+            }
+        }
+
+        .animatedPG {
+            @include absoluteFullSize(50%,"","",50%);
+            width: 15rem;
+            margin-top: -7.5rem;
+            margin-left: -7.5rem;
+
+            > img {
+                @include absoluteFullSize(0,"","",0);
+                width: 15rem;
+                z-index: 10;
+            }
+
+            > .light {
+                @include absoluteFullSize(0,"","",0);
+                width: 12rem;
+                height: 12rem;
+                margin: 1.5rem;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.5);
+                box-shadow: 0 0 9rem 3rem rgba(255,255,255,0.8);
+                z-index: 5;
+                animation-delay: 0.2s;
+            }
+        }
+    }
+
+    &.filtersBarOpen {
+        #topBar {
+            box-shadow: none;
+        }
+
+        #main, #loadingBackground {
+            top: $topBarH + $filtersMenuBarH;
+        }
+
+        #filterBar {
+            transform: translateY(0);
+
+            #filtersMenuBar {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.filtersBarClosed {
+        #main, #loadingBackground {
+            top: $topBarH;
+        }
+
+        #filterBar {
+            transform: translateY(-$filtersMenuBarH);
+
+            #filtersMenuBar {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+//#region Bar Value Template
+.bar-value {
+        display: block;
+        box-sizing: border-box;
+        width: 0;
+        max-width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        border-radius: 2.5rem;
+        font-size: 2rem;
+        font-weight: normal;
+        text-align: left;
+        padding: 0 2rem;
+        vertical-align: middle;
+        text-shadow: 0 0 0.3rem #fff, 0 0 0.5rem #fff;
+        white-space: nowrap;
+        transition: 1s all ease-in-out;
+    }
+
+.updt-value,
+.totalStops-value {
+    display: block;
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: left;
+    padding: 0rem;
+    vertical-align: middle;
+    text-shadow: 0 0 .3rem #ccc,0 0 .5rem #ddd;
+    transition: 1s all ease-in-out;
+    color: #222;
+}
+//#endregion
+
+@media (max-width: 1024px) {
+    
+    .hide-max-width-1024 {
+        display: none !important;
+    }
+    
+}
+@media (max-width: 768px) {
+    .hide-max-width-768 {
+        display: none !important;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .hide-min-width-769 {
+        display: none;
+    }
+}
+

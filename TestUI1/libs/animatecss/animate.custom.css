@@ -1,0 +1,284 @@
+﻿.animated.half {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+/***** RAINBOW *****/
+@-webkit-keyframes rainbow {
+  0% {
+    background: darkgoldenrod;
+  }
+
+  10% {
+    background: darkgreen;
+  }
+  20% {
+    background: mediumturquoise;
+  }
+  30% {
+    background: orange;
+  }
+  40% {
+    background: cyan;
+  }
+  50% {
+    background: lightpink;
+  }
+  60% {
+    background: darkmagenta;
+  }
+  70% {
+    background: yellow;
+  }
+  80% {
+    background: maroon;
+  }
+  90% {
+    background: lime;
+  }
+  100% {
+    background: coral;
+  }
+}
+
+@keyframes rainbow {
+   0% {
+    background: darkgoldenrod;
+  }
+
+  10% {
+    background: darkgreen;
+  }
+  20% {
+    background: mediumturquoise;
+  }
+  30% {
+    background: orange;
+  }
+  40% {
+    background: cyan;
+  }
+  50% {
+    background: lightpink;
+  }
+  60% {
+    background: darkmagenta;
+  }
+  70% {
+    background: yellow;
+  }
+  80% {
+    background: maroon;
+  }
+  90% {
+    background: lime;
+  }
+  100% {
+    background: coral;
+  }
+}
+
+.rainbow {
+  -webkit-animation-name: rainbow;
+  animation-name: rainbow;
+  -webkit-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+}
+
+/***** SLIDE IN LEFT *****/
+@-webkit-keyframes slideInLeftCustom {
+  0% {
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeftCustom {
+  0% {
+    -webkit-transform: translateX(-2000px);
+    -ms-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slideInLeftCustom {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+/***** SLIDE OUT RIGHT *****/
+@-webkit-keyframes slideOutRightCustom {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideOutRightCustom {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+.slideOutRightCustom {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}
+
+
+
+/***** RIPPLE *****/
+
+@keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+    100% {
+        opacity: 0;
+        -moz-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        -webkit-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+@-webkit-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+
+@keyframes flyOutIn {
+    0% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(150%);
+    }
+    50% {
+        
+        opacity: 0;
+    }
+    55% {
+        transform: translateX(-150%);
+        opacity: 1
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes flyOutIn {
+    0% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(150%);
+    }
+    50% {
+        
+        opacity: 0;
+    }
+    55% {
+        transform: translateX(-150%);
+        opacity: 1
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.flyOutIn {
+  -webkit-animation-name: flyOutIn;
+  animation-name: flyOutIn;
+}
+
+@keyframes flyOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    90% {
+        transform: translateX(150%);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+@-webkit-keyframes flyOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    90% {
+        transform: translateX(150%);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.flyOut {
+  -webkit-animation-name: flyOut;
+  animation-name: flyOut;
+}
+
+@keyframes flyIn {
+    0% {
+        transform: translateX(-150%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes flyIn {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    90% {
+        transform: translateX(150%);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.flyIn {
+  -webkit-animation-name: flyIn;
+  animation-name: flyIn;
+}

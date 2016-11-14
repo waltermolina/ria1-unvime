@@ -1,0 +1,15 @@
+﻿.km-switch-background, .km-switch-container, .km-switch-wrapper {
+    border-radius: 2rem;
+}
+
+.km-switch-handle {
+    border-radius: 50%;
+}
+
+.km-switch-label-off,
+.km-switch-label-on {
+    text-shadow: none;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    top: 0;
+}

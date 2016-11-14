@@ -1,0 +1,176 @@
+﻿.no-border-grid {
+    .k-grid-header,
+    .k-grid-footer {
+        padding-right: 0 !important;
+    }
+
+    .k-grid-header-locked,
+    .k-grid-content-locked {
+        border: none;
+    }
+
+    .k-grid-content,
+    .k-grid-content > table,
+    .k-grid-content > table > tbody {
+        
+    }
+
+    &.k-grid.k-widget {
+        border-color: transparent !important;
+        border-width: 0 !important;
+    }
+
+    .k-grid-header {
+        border-color: transparent !important;
+        border-width: 0 !important;
+    }
+
+    .k-grid-footer,
+    .k-grid-header-wrap,
+    .k-grid-header,
+    &.k-grid td,
+    &.k-grid td.k-state-selected,
+    &.k-grid-footer-wrap {
+        border-color: transparent !important;
+        border-width: 0 !important;
+    }
+
+    &.k-grid .k-header {
+        border-color: transparent !important;
+        border-width: 0 !important;
+    }
+}
+
+
+/*#region Blue Header for Kendo Grid*/
+/*This tweak needs to use Kendo Material Theme (?)*/
+.blueheader {
+    > .k-grouping-header {
+        border: none !important;
+        box-shadow: inset -2rem -2rem 2rem -2rem rgba(0,0,0,.5);
+        background: #3f51b5;
+        color: rgba(255,255,255,0.5);
+        padding: 0.5rem 1.5rem;
+        font-size: 1.1rem;
+
+        .k-group-indicator {
+            background-color: rgba(255,255,255,.7);
+            border-color: transparent !important;
+
+            .k-button {
+                padding: 0.5rem;
+                margin: 0;
+            }
+        }
+    }
+
+    > .k-grid-header,
+    > table .k-grid-header {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        border: none;
+        background: #3f51b5;
+
+        &.scrollShadow {
+            box-shadow: 0 0 1rem 0.5rem rgba(0,0,0,.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .k-grid-header-wrap,
+        .k-grid-header-locked {
+            border: none;
+        }
+
+        tr:hover {
+            background: transparent !important;
+        }
+
+        tr th {
+            background: transparent;
+            border-color: transparent;
+            color: #eee;
+            padding: 0.5rem;
+
+            &:hover {
+                background: transparent !important;
+            }
+
+            a {
+                color: #fff !important;
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                font-weight: 200;
+
+                &.k-link {
+                    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                    margin: 0;
+                }
+            }
+        }
+
+        .k-icon,
+        .k-tool-icon,
+        .k-grouping-dropclue,
+        .k-drop-hint,
+        .k-column-menu .k-sprite,
+        .k-grid-mobile .k-resize-handle-inner:before,
+        .k-grid-mobile .k-resize-handle-inner:after {
+            background-image: url('/libs/kendo/styles/MaterialBlack/sprite.png');
+            border-color: transparent;
+        }
+    }
+}
+
+/*#endregion*/
+ 
+
+/*#region Grid Customizations*/
+.k-grid-header {
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+
+    &.scrollShadow {
+        box-shadow: 0 0 2rem 0.5rem rgba(0,0,0,0.5);
+        position: relative;
+        z-index: 1;
+    }
+    .k-grid-filter,
+    .k-header-column-menu {
+        /* margin: -0.2em -0.3em 0em; */
+        padding: 0.5rem 0rem 0.5rem 0.5rem;
+        margin: 0 0 0 -0.5rem;
+        float: left;
+    }
+}
+
+.k-grid-hor-scroll-shadow {
+    position: absolute;
+    width: 2rem;
+    z-index: 2;
+    border-left: 0.2rem solid rgba(0,0,0,0.3);
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.25)), color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#00000000',GradientType=1 );
+}
+
+.k-toolbar.k-grid-toolbar, .k-grouping-header {
+    position: relative;
+    z-index: 2;
+}
+
+.k-grid-header-locked {
+    border-color: rgba(0,0,0,0.25);
+}
+.k-grid-content-locked {
+    border-color: rgba(0,0,0,0.25);
+}
+
+/*#endregion*/
+    

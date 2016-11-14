@@ -1,0 +1,10 @@
+﻿/*
+ *    Color Palette based on Materialize CSS code and Google Material colors
+ *    Version 1.0
+ *    By Walter Molina for Tachuso
+ *    facebook.com/tachuso
+ */
+
+@import "modules/_color.scss";
+
+@include buildColors();

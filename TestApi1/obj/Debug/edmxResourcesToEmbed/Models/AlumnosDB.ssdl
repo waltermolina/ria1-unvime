@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlumnosUNViMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Career">
+    <Key>
+      <PropertyRef Name="IdCareer" />
+    </Key>
+    <Property Name="IdCareer" Type="int" Nullable="false" />
+    <Property Name="CareerName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdSchool" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IdentificationType">
+    <Key>
+      <PropertyRef Name="IdentificationId" />
+    </Key>
+    <Property Name="IdentificationId" Type="int" Nullable="false" />
+    <Property Name="IdentificationType" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IdentificationDescription" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="IdSchool" />
+    </Key>
+    <Property Name="IdSchool" Type="int" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SchoolAcronym" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student2">
+    <Key>
+      <PropertyRef Name="IdStudent" />
+    </Key>
+    <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="File" Type="nvarchar" MaxLength="10" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdType" Type="int" />
+    <Property Name="IdNumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="Career" Type="int" Nullable="false" />
+    <Property Name="StartYear" Type="int" />
+  </EntityType>
+  <Association Name="FK_Career_School">
+    <End Role="School" Type="Self.School" Multiplicity="1" />
+    <End Role="Career" Type="Self.Career" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="IdSchool" />
+      </Principal>
+      <Dependent Role="Career">
+        <PropertyRef Name="IdSchool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student2_Career">
+    <End Role="Career" Type="Self.Career" Multiplicity="1" />
+    <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Career">
+        <PropertyRef Name="IdCareer" />
+      </Principal>
+      <Dependent Role="Student2">
+        <PropertyRef Name="Career" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student2_IdentificationType">
+    <End Role="IdentificationType" Type="Self.IdentificationType" Multiplicity="0..1" />
+    <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IdentificationType">
+        <PropertyRef Name="IdentificationId" />
+      </Principal>
+      <Dependent Role="Student2">
+        <PropertyRef Name="IdType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AlumnosUNViMeModelStoreContainer">
+    <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IdentificationType" EntityType="Self.IdentificationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student2" EntityType="Self.Student2" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Career_School" Association="Self.FK_Career_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="Career" EntitySet="Career" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student2_Career" Association="Self.FK_Student2_Career">
+      <End Role="Career" EntitySet="Career" />
+      <End Role="Student2" EntitySet="Student2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student2_IdentificationType" Association="Self.FK_Student2_IdentificationType">
+      <End Role="IdentificationType" EntitySet="IdentificationType" />
+      <End Role="Student2" EntitySet="Student2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

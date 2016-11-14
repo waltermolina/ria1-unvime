@@ -1,0 +1,124 @@
+﻿
+.toolbar {
+    padding: 0;
+    background: transparent;
+    border: none;
+
+    &.shadow{
+        box-shadow: 0 0 1rem 0 rgba(0,0,0,0.5);
+    }
+
+    .group {
+        padding: 0.5rem;
+        border: 0.1rem solid rgba(0,0,0,0.2);
+
+        &.header {
+            margin: 0;
+            padding: 0 1rem 0 0.5rem;
+
+            > h1 {
+                font-size: 2rem;
+                line-height: 4rem;
+                font-weight: 200;
+            }
+        }
+
+        > label {
+            height: 2.6rem;
+            line-height: 2.6rem;
+            padding: 0;
+            margin: 0 1rem 0 0;
+            font-weight: 300;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 1.4rem;
+        }
+
+        > label.text-and-icon > i {
+            margin-right: 1rem;
+            font-size: 1.6rem;
+        }
+
+        > label.icon-only > i {
+            font-size: 1.6rem;
+        }
+
+
+        .input {
+            margin: 0 0.5rem 0 0;
+        }
+
+        button {
+        }
+
+        .advice {
+            height: 2.6rem;
+            line-height: 2.6rem;
+            padding: 0;
+            margin: 0 1rem 0 0;
+            font-weight: 300;
+            font-size: 1.3rem;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-shadow: 0 0 1.5rem #fff, 0 0 1rem #fff, 0 0 0.5rem #fff;
+
+            .red {
+                background: rgba(255,0,0,0.5);
+                padding: 0 0.5rem;
+            }
+
+            .green {
+                background: rgba(0,255,0,0.5);
+                padding: 0 0.5rem;
+            }
+
+            .yellow {
+                background: rgba(255,255,0,0.5);
+                padding: 0 0.5rem;
+            }
+
+            > i.big-icon {
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            font-size: 1.4rem;
+            margin: 0 0 1rem 0;
+        }
+    }
+
+    .toolbar-header {
+        
+        > h1 {
+            padding: 0 1rem;
+            font-size: 2rem;
+            line-height: $pageToolbarH;
+            font-weight: 200;
+            color: #fff;
+        }
+    }
+
+    .group-label > label {
+        width: 7rem;
+        text-align: center;
+        display: block;
+        padding: 0 0.5rem !important;
+        color: rgba(0,0,0,0.7);
+    }
+
+    .divider {
+        border-left: .1rem solid #c5c5c5;
+        height: 2.6rem;
+        margin: .5rem;
+    }
+
+    .toolbar-btn {
+        background: color("pg","darkblue");
+
+
+    }
+}
+/*#endregion*/

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AlumnosUNViMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="IdCareer" />
+          </Key>
+          <Property Name="IdCareer" Type="int" Nullable="false" />
+          <Property Name="CareerName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdSchool" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IdentificationType">
+          <Key>
+            <PropertyRef Name="IdentificationId" />
+          </Key>
+          <Property Name="IdentificationId" Type="int" Nullable="false" />
+          <Property Name="IdentificationType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdentificationDescription" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="IdSchool" />
+          </Key>
+          <Property Name="IdSchool" Type="int" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="SchoolAcronym" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student2">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File" Type="nvarchar" MaxLength="10" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdType" Type="int" />
+          <Property Name="IdNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Career" Type="int" Nullable="false" />
+          <Property Name="StartYear" Type="int" />
+        </EntityType>
+        <Association Name="FK_Career_School">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="Career" Type="Self.Career" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="IdSchool" />
+            </Principal>
+            <Dependent Role="Career">
+              <PropertyRef Name="IdSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student2_Career">
+          <End Role="Career" Type="Self.Career" Multiplicity="1" />
+          <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Career">
+              <PropertyRef Name="IdCareer" />
+            </Principal>
+            <Dependent Role="Student2">
+              <PropertyRef Name="Career" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student2_IdentificationType">
+          <End Role="IdentificationType" Type="Self.IdentificationType" Multiplicity="0..1" />
+          <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentificationType">
+              <PropertyRef Name="IdentificationId" />
+            </Principal>
+            <Dependent Role="Student2">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlumnosUNViMeModelStoreContainer">
+          <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentificationType" EntityType="Self.IdentificationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student2" EntityType="Self.Student2" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Career_School" Association="Self.FK_Career_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="Career" EntitySet="Career" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student2_Career" Association="Self.FK_Student2_Career">
+            <End Role="Career" EntitySet="Career" />
+            <End Role="Student2" EntitySet="Student2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student2_IdentificationType" Association="Self.FK_Student2_IdentificationType">
+            <End Role="IdentificationType" EntitySet="IdentificationType" />
+            <End Role="Student2" EntitySet="Student2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlumnosUNViMeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="IdCareer" />
+          </Key>
+          <Property Name="IdCareer" Type="Int32" Nullable="false" />
+          <Property Name="CareerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdSchool" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="School" Relationship="Self.FK_Career_School" FromRole="Career" ToRole="School" />
+          <NavigationProperty Name="Student2" Relationship="Self.FK_Student2_Career" FromRole="Career" ToRole="Student2" />
+        </EntityType>
+        <EntityType Name="IdentificationType">
+          <Key>
+            <PropertyRef Name="IdentificationId" />
+          </Key>
+          <Property Name="IdentificationId" Type="Int32" Nullable="false" />
+          <Property Name="IdentificationType1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdentificationDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Student2" Relationship="Self.FK_Student2_IdentificationType" FromRole="IdentificationType" ToRole="Student2" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="IdSchool" />
+          </Key>
+          <Property Name="IdSchool" Type="Int32" Nullable="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SchoolAcronym" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Careers" Relationship="Self.FK_Career_School" FromRole="School" ToRole="Career" />
+        </EntityType>
+        <EntityType Name="Student2">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdType" Type="Int32" />
+          <Property Name="IdNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Career" Type="Int32" Nullable="false" />
+          <Property Name="StartYear" Type="Int32" />
+          <NavigationProperty Name="Career1" Relationship="Self.FK_Student2_Career" FromRole="Student2" ToRole="Career" />
+          <NavigationProperty Name="IdentificationType" Relationship="Self.FK_Student2_IdentificationType" FromRole="Student2" ToRole="IdentificationType" />
+        </EntityType>
+        <Association Name="FK_Career_School">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="Career" Type="Self.Career" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="IdSchool" />
+            </Principal>
+            <Dependent Role="Career">
+              <PropertyRef Name="IdSchool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student2_Career">
+          <End Role="Career" Type="Self.Career" Multiplicity="1" />
+          <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Career">
+              <PropertyRef Name="IdCareer" />
+            </Principal>
+            <Dependent Role="Student2">
+              <PropertyRef Name="Career" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student2_IdentificationType">
+          <End Role="IdentificationType" Type="Self.IdentificationType" Multiplicity="0..1" />
+          <End Role="Student2" Type="Self.Student2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentificationType">
+              <PropertyRef Name="IdentificationId" />
+            </Principal>
+            <Dependent Role="Student2">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlumnosUNViMeEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Careers" EntityType="Self.Career" />
+          <EntitySet Name="IdentificationTypes" EntityType="Self.IdentificationType" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+          <EntitySet Name="Student2" EntityType="Self.Student2" />
+          <AssociationSet Name="FK_Career_School" Association="Self.FK_Career_School">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Career" EntitySet="Careers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student2_Career" Association="Self.FK_Student2_Career">
+            <End Role="Career" EntitySet="Careers" />
+            <End Role="Student2" EntitySet="Student2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student2_IdentificationType" Association="Self.FK_Student2_IdentificationType">
+            <End Role="IdentificationType" EntitySet="IdentificationTypes" />
+            <End Role="Student2" EntitySet="Student2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlumnosUNViMeModelStoreContainer" CdmEntityContainer="AlumnosUNViMeEntities">
+          <EntitySetMapping Name="Careers">
+            <EntityTypeMapping TypeName="AlumnosUNViMeModel.Career">
+              <MappingFragment StoreEntitySet="Career">
+                <ScalarProperty Name="IdCareer" ColumnName="IdCareer" />
+                <ScalarProperty Name="CareerName" ColumnName="CareerName" />
+                <ScalarProperty Name="IdSchool" ColumnName="IdSchool" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentificationTypes">
+            <EntityTypeMapping TypeName="AlumnosUNViMeModel.IdentificationType">
+              <MappingFragment StoreEntitySet="IdentificationType">
+                <ScalarProperty Name="IdentificationId" ColumnName="IdentificationId" />
+                <ScalarProperty Name="IdentificationType1" ColumnName="IdentificationType" />
+                <ScalarProperty Name="IdentificationDescription" ColumnName="IdentificationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="AlumnosUNViMeModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="IdSchool" ColumnName="IdSchool" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolAcronym" ColumnName="SchoolAcronym" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student2">
+            <EntityTypeMapping TypeName="AlumnosUNViMeModel.Student2">
+              <MappingFragment StoreEntitySet="Student2">
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="Career" ColumnName="Career" />
+                <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

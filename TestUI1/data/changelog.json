@@ -1,0 +1,109 @@
+﻿[
+  {
+    "id": "1.5",
+    "text": "Version 1.5",
+    "changelog": [
+      {
+        "type": "add",
+        "description": "New Feature."
+      },
+      {
+        "type": "fix",
+        "description": "Fixed or improved feature."
+      },
+      {
+        "type": "remove",
+        "description": "Removed feature."
+      },
+      {
+        "type": "bug",
+        "description": "Known bug."
+      },
+      {
+        "type": "note",
+        "description": "General note."
+      }
+    ]
+  },
+  {
+    "id": "1.4",
+    "text": "Version 1.4",
+    "changelog": [
+      {
+        "type": "add",
+        "description": "2 new metrics: <b>UP EffLoss</b> and <b>Unplanned Stops</b>."
+      },
+      {
+        "type": "add",
+        "description": "Raw data section for PR calculation with Excel export."
+      },
+      {
+        "type": "add",
+        "description": "Raw data section for Unplanned PR % with Excel export."
+      },
+      {
+        "type": "add",
+        "description": "Raw data section for Unplanned Stops with Excel export."
+      }
+    ]
+  },
+  {
+    "id": "1.3",
+    "text": "Version 1.3",
+    "changelog": [
+      {
+        "type": "note",
+        "description": "Missing changelog for this version."
+      }
+    ]
+  },
+  {
+    "id": "1.2",
+    "text": "Version 1.2",
+    "changelog": [
+      {
+        "type": "add",
+        "description": "Export Trends Data to Excel."
+      },
+      {
+        "type": "add",
+        "description": "Export Comparison Data to Excel."
+      },
+      {
+        "type": "add",
+        "description": "Swipe Trend Chart for details."
+      },
+      {
+        "type": "add",
+        "description": "New iOS web app icon."
+      }
+
+    ]
+  },
+  {
+    "id": "1.0",
+    "text": "Version 1.0",
+    "changelog": [
+      {
+        "type": "add",
+        "description": "Plants results in World Map."
+      },
+      {
+        "type": "add",
+        "description": "Quick Navigation Links in Headers."
+      },
+      {
+        "type": "add",
+        "description": "Path in Mobile Phone List View."
+      },
+      {
+        "type": "add",
+        "description": "Fem Care Results."
+      },
+      {
+        "type": "fix",
+        "description": "Export Details to Excel."
+      }
+    ]
+  }
+]

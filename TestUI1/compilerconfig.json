@@ -1,0 +1,30 @@
+﻿[
+  {
+    "outputFile": "css/ui.css",
+    "inputFile": "css/ui.scss"
+  },
+  {
+    "outputFile": "css/scrollbar.css",
+    "inputFile": "css/scrollbar.scss"
+  },
+  {
+    "outputFile": "css/common.css",
+    "inputFile": "css/common.scss"
+  },
+  {
+    "outputFile": "css/colors.css",
+    "inputFile": "css/colors.scss"
+  },
+  {
+    "outputFile": "js/ui.es5.js",
+    "inputFile": "js/ui.js"
+  },
+  {
+    "outputFile": "libs/normalize/normalize.css",
+    "inputFile": "libs/normalize/normalize.scss"
+  },
+  {
+    "outputFile": "css/students.css",
+    "inputFile": "css/students.scss"
+  }
+]

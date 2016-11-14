@@ -1,0 +1,20 @@
+[
+  {
+    "outputFileName": "js/common.min.js",
+    "inputFiles": [
+      "js/common.js"
+    ]
+  },
+  {
+    "outputFileName": "js/ui.min.js",
+    "inputFiles": [
+      "js/ui.js"
+    ]
+  },
+  {
+    "outputFileName": "js/students.min.js",
+    "inputFiles": [
+      "js/students.js"
+    ]
+  }
+]

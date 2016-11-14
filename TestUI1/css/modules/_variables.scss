@@ -1,0 +1,48 @@
+﻿//Units
+$minUnit: 1;
+$baseUnit: 4; //4 pixel is base unit. All sizes must be multiples of 4.
+
+//Font Size
+$standardFontSize: 16px;
+$baseFontSize: 10px;
+
+//Font Color
+$baseFontColor: color("black","base");
+
+//Font Family
+$baseFontFamily: 'Source Sans Pro', sans-serif;
+
+//Animated Loading Background
+$backgroundLogoH: 15rem;
+$backgroundLogoShadowH: 12rem;
+
+//Menu Bar
+$topBarH: 4.8rem;
+
+//Filters Menu Bar
+$filtersMenuBarH: 4.8rem;
+
+//SideBar
+$sideBar: 30rem;
+$sideBarHeaderH: 4.8rem;
+$sideBarFooterH: 4.8rem; 
+
+
+$sideBarFilterGroupHeaderH: 4.8rem;
+
+//Olivia Button
+$oBtnNormalH: 4.8rem;
+$oBtnNormalW: 4.8rem;
+$oBtnNormalFontSize: 2rem;
+$oBtnNormalBorderW: 0.2rem;
+
+//Page Main Toolbars
+$pageToolbarH: 4.8rem;
+
+//Popup Window
+$popupWindowHeaderH: 4rem;
+
+
+//Path Menu
+$breadcrumbH: 4.8rem;
+$pathListItemH: 4.8rem;

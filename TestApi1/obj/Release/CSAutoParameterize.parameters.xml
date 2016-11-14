@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AlumnosUNViMeEntities-Web.config Connection String" description="AlumnosUNViMeEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.AlumnosDB.csdl|res://*/Models.AlumnosDB.ssdl|res://*/Models.AlumnosDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tachuso-public-sql.database.windows.net;initial catalog=AlumnosUNViMe;persist security info=True;user id=olivia;password=T0d4yW3Rul3Th3W0rld!;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Walter\\Documents\\Projects\\ria1-unvime\\TestApi1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AlumnosUNViMeEntities']/@connectionString" />
+  </parameter>
+</parameters>
